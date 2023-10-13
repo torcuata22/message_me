@@ -2,7 +2,7 @@ class ChatroomController < ApplicationController
   def index
   end
 
-  def new
+  def login
   end
 
   def show
