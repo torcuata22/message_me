@@ -4,3 +4,7 @@
 //= require semantic-ui
 import "@hotwired/turbo-rails";
 import "controllers";
+
+$(document).ready(function () {
+  $(".ui.dropdown").dropdown();
+});
