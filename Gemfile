@@ -27,6 +27,12 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+#Semantic-UI CSS:
+gem 'semantic-ui-sass', '~> 2.2', '>= 2.2.1.1'
+
+#jquery: 
+gem 'jquery-rails', '~> 4.4'
+
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"
 
