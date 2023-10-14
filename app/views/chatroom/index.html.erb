@@ -11,49 +11,20 @@
                     <div class="event">
                     <div class="content">
                         <div class="summary">
-                        <em>Elliot Fu</em> added <em>Jenny Hess</em> as a friend
-                        </div>
-                    </div>
-                    </div>
-                    <div class="event">
-                    <div class="content">
-                        <div class="summary">
-                        <em>Stevie Feliciano</em> added <em>Elliot Fu</em> as a friend
-                        </div>
-                    </div>
-                    </div>
-                    <div class="event">
-                    <div class="content">
-                        <div class="summary">
-                        <em>Helen Troy</em> added <em>Christian Rocha</em> as a friend
-                        </div>
-                    </div>
-                    </div>
-                    <div class="event">
-                    <div class="content">
-                        <div class="summary">
-                        <em>Christian Rocha</em>: Test Message
+                          <br>  
+                            <% @messages.each do |message| %>
+                                <em><%= message.user.username %></em>: <%= message.body %>
+                                <br><br>
+                            <% end %>
+                        
                         </div>
                     </div>
                     </div>
                 </div>
             </div>
-            <div class="extra content">
-                <form class="ui reply form">
-                    <div class="field">
-                        <div class="ui fluid icon">
-                            <div class="ui icon input">
-                                <input type="text" placeholder="Enter Message">
-                                <i class="bordered inverted red edit icon"></i>
-                            </div>
-                             
-                        </div>
-                    </div>
-
-                </form>
-            </div>
         </div>
-    </div>        
+    </div>
+                           
 
     <div class="four wide column">
         <div class="ui fluid raised card chatbox">
