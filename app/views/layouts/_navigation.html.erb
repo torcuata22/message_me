@@ -1,21 +1,16 @@
 <div class="ui small inverted menu">
-    <div class="ui container">
-      <%= link_to "Chatroom", chatroom_index_path, class:"item" %>
-
-      <a class="item">
-        Messages
-      </a>
-      <div class="right menu">
-        <div class="ui dropdown item">
-          Account <i class="dropdown icon"></i>
-          <div class="menu">
-            <%= link_to 'Log In', new_session_path, class:"item" %>
-
-          </div>
-        </div>
-        <div class="item">
-            <div class="ui primary button">Create an Acount</div>
-        </div>
-      </div>
+  <div class="ui container">
+    <%= link_to "Chatroom", chatroom_index_path, class: "item" %>
+    <a class="item">Messages</a>
+    <div class="right menu">
+      <% if current_user %>
+        <%= link_to "Log Out", destroy_session_path, class:"item",  data: { turbo_method: :delete } %>
+        
+      <% else %>  
+        <%= link_to 'Log In', new_session_path, class: "item" %>
+        <%= link_to 'Create an Account', new_user_path, class: "ui primary button" %>
+      <% end %>
+    
     </div>
   </div>
+</div>
