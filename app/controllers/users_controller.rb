@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+
+  def index
+    @users=User.all
+  end
+
   def new
     @user = User.new
   end
@@ -6,11 +11,13 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-    session[:user_id] = @user.id
-    flash[:notice] = "Welcome to Coffe Chat #{@user.username}, you have successfully signed up."
-    redirect_to  index_path
+      session[:user_id] = @user.id
+      flash[:notice] = "Welcome to Coffee Chat, #{@user.username}, you have successfully signed up."
+      redirect_to new_session_path
     else
-    render 'new'
+      flash.now[:alert] = "Failed to create user."
+      render 'new'
+    end
   end
     
   def destroy
@@ -26,7 +33,7 @@ class UsersController < ApplicationController
   end
     
     
-private
+  private
     
   def user_params
     params.require(:user).permit(:username, :email, :password)

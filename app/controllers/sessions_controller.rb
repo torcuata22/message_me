@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(username: params[:session][:username])
     if user && user.authenticate(params[:session][:password])
-      session[:user_id] = user.id #this will allow logged in users to authenticate once and remian signed in for future requests
+      session[:user_id] = user.id #this will allow logged in users to authenticate once and remain signed in for future requests
       flash[:notice] = "Log in successful"
       redirect_to root_path
     else 
@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    flash[:notice] = "Logged out"
+    flash[:success] = "You have successfully logged out"
     redirect_to new_session_path
   end
 

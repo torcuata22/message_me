@@ -16,3 +16,8 @@ class ApplicationController < ActionController::Base
     end
   end
 end
+
+#exclude create new user from require_user:
+class UsersController < ApplicationController
+  before_action :require_user, except: [:new, :create]
+end
