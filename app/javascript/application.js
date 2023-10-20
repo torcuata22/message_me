@@ -10,3 +10,4 @@ $(document).on("turbolinks:load", function () {
     $(this).closest(".message").transition("fade");
   });
 });
+import "channels"
