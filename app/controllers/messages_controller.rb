@@ -1,6 +1,9 @@
 class MessagesController < ApplicationController
-  
+    before_action :require_user
+
     def create
+        # message = current_user.message.build(message_params)
+
       @message = Message.new(message_params)
       @message.user = current_user
 
