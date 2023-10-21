@@ -7,7 +7,7 @@ class MessagesController < ApplicationController
       @message.user = current_user
 
       if @message.save
-        ActionCable.server.broadcast "chatroom_channel", {message: @message.body}
+        ActionCable.server.broadcast "chatroom_channel", {mod_message: message_render(@message)}
       else
         render 'index'
       end
@@ -20,7 +20,9 @@ class MessagesController < ApplicationController
         params.require(:message).permit(:body)
     end
 
-
+    def message_render(message)
+      render(partial: 'message', locals: {message: message})
+    end
 end
   
 

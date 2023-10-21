@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users
   resources :chatroom
   resources :sessions
+  get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy', as: :destroy_session
   post 'message', to: 'messages#create'
